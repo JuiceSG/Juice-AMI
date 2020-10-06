@@ -5,7 +5,7 @@ import report_generator
 from dotenv import load_dotenv
 from flask import Flask, request, session, redirect, render_template, send_file
 
-load_dotenv('C:/Juice Pipeline/config.env')
+load_dotenv('C:/Juice_Pipeline/config.env')
 app = Flask(__name__)
 app.secret_key = os.getenv('AG_AMI_SECRET_KEY')   # dla obslugi sesji
 host = os.getenv('SG_AMI_FLASK_HOST')

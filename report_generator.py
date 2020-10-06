@@ -12,7 +12,7 @@ from docx.oxml.shared import OxmlElement, qn
 from docx.shared import Mm, Pt
 
 
-load_dotenv('C:/Juice Pipeline/config.env')
+load_dotenv('C:/Juice_Pipeline/config.env')
 sg_token = os.getenv('SG_AMI_FLASK_TOKEN')
 sg_address = os.getenv('SG_ADDRESS')
 sg_script_name = os.getenv('SG_AMI_FLASK_NAME')
