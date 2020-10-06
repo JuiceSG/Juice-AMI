@@ -358,7 +358,7 @@ class DocXFormatReport:
         col.width = Mm(40)
         paragraph = cell.paragraphs[0]
         run_image = paragraph.add_run()
-        run_image.add_picture('c:/JuiceSG/AMI/img/J.png', height=Mm(20))
+        run_image.add_picture('C:/Juice_Pipeline/Juice-AMI/img/J.png', height=Mm(20))
         paragraph = header_table.cell(0, 1).paragraphs[0]
         run_project_name = paragraph.add_run()
         run_project_name.add_break()
@@ -377,7 +377,7 @@ class DocXFormatReport:
         else:
             columns = self.__data.data_columns
         number_of_cols = len(columns)
-        entity_table = self.__doc.add_table(rows=1, cols=number_of_cols, style='TableNormal')
+        entity_table = self.__doc.add_table(rows=1, cols=number_of_cols, style='TableGrid')
         self.__create_entity_table_header(entity_table, columns)
 
         row_cells = entity_table.add_row().cells
