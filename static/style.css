@@ -1,0 +1,32 @@
+body{
+    background-color: white;
+}
+
+img{
+    display: inline-block;
+    vertical-align: top;
+    align:left;
+    width: 50mm;
+}
+
+table, th, td {
+  border: 1px solid silver;
+  border-collapse: collapse;
+  padding: 2mm;
+  font-size: 10px;
+  text-align: justify;
+}
+
+.entity{
+    width: 210mm;
+    padding-bottom: 2mm;
+    border-bottom: 1px solid;
+    border-color: grey;
+}
+
+.entity_name{
+    width: 100%;
+    padding: 3mm 0mm 3mm 5mm;
+    font-size: 14px;
+    font-style: bold;
+}
