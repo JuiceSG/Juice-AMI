@@ -8,6 +8,8 @@ from flask import Flask, request, session, redirect, render_template, send_file
 load_dotenv('C:/Juice Pipeline/config.env')
 app = Flask(__name__)
 app.secret_key = os.getenv('AG_AMI_SECRET_KEY')   # dla obslugi sesji
+host = os.getenv('SG_AMI_FLASK_HOST')
+port = os.getenv('SG_AMI_FLASK_PORT')
 logging.basicConfig(level=logging.DEBUG)
 
 
@@ -33,4 +35,4 @@ def generate_report(redirected_address):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host='192.168.1.34', port='5000')
+    app.run(debug=True, host=host, port=port)
