@@ -379,7 +379,6 @@ class DocXFormatReport:
         number_of_cols = len(columns)
         entity_table = self.__doc.add_table(rows=1, cols=number_of_cols, style='TableGrid')
         self.__create_entity_table_header(entity_table, columns)
-
         row_cells = entity_table.add_row().cells
         group_summary = self.__get_group_summary(self.__data.data)
         self.__add_group_summaries(group_summary, row_cells)
