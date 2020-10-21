@@ -5,12 +5,17 @@ import report_generator
 from dotenv import load_dotenv
 from flask import Flask, request, session, redirect, render_template, send_file
 
-load_dotenv('C:/Juice_Pipeline/config.env')
+load_dotenv('X:/Juice_Pipeline/config.env')
 app = Flask(__name__)
 app.secret_key = os.getenv('AG_AMI_SECRET_KEY')   # dla obslugi sesji
 host = os.getenv('SG_AMI_FLASK_HOST')
 port = os.getenv('SG_AMI_FLASK_PORT')
 logging.basicConfig(level=logging.DEBUG)
+
+
+@app.route('/test')
+def hello():
+    return 'TEST'
 
 
 @app.route('/generate_report', methods=['POST'])
@@ -35,4 +40,4 @@ def generate_report(redirected_address):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host=host, port=port)
+    app.run(debug=True, host='192.168.1.196', port='5005')

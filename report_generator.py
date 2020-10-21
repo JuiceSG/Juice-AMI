@@ -327,6 +327,10 @@ class DocXFormatReport:
     def report(self):
         return self.__report
 
+    @property
+    def title(self):
+        return self.__document_title
+
     def __doc_settings(self):
         section = self.__doc.sections[0]
         section.page_height = Mm(297)
