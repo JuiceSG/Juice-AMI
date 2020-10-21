@@ -39,5 +39,10 @@ def generate_report(redirected_address):
     return send_file(new_report, as_attachment=True, attachment_filename=document_title)
 
 
+@app.route('/download_playlist', methods=['POST'])
+def download_playlists():
+    return True
+
+
 if __name__ == "__main__":
     app.run(debug=True, host='192.168.1.196', port='5005')
