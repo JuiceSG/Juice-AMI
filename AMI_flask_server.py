@@ -2,6 +2,7 @@ import logging
 import random
 import os
 import report_generator
+import download_playlist
 from dotenv import load_dotenv
 from flask import Flask, request, session, redirect, render_template, send_file
 
@@ -41,8 +42,10 @@ def generate_report(redirected_address):
 
 @app.route('/download_playlist', methods=['POST'])
 def download_playlists():
-    return True
+    post_dict = dict(request.form)
+    # test = download_playlist.test()
+    return 'under construction'
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host='192.168.1.196', port='5005')
+    app.run(debug=True, host=host, port=port)
