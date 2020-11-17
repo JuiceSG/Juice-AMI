@@ -13,9 +13,9 @@ from docx.shared import Mm, Pt
 
 
 load_dotenv('C:/Juice_Pipeline/config.env')
-sg_token = os.getenv('SG_AMI_FLASK_TOKEN')
+sg_token = os.getenv('SG_AMI_REPORT_GENERATOR_TOKEN')
 sg_address = os.getenv('SG_ADDRESS')
-sg_script_name = os.getenv('SG_AMI_FLASK_NAME')
+sg_script_name = os.getenv('SG_AMI_REPORT_GENERATOR_NAME')
 logging.basicConfig(level=logging.DEBUG)
 
 
