@@ -40,8 +40,8 @@ def generate_report(redirected_address):
 def download_playlists():
     post_dict = dict(request.form)
     playlist = download_playlist.PlaylistDownloader(post_dict)
-    playlist.download()
-    return 'Playlists downloaded'
+    data = playlist.download()
+    return render_template('download_playlist.html', data=data)
 
 
 @app.route('/change_status', methods=['POST'])

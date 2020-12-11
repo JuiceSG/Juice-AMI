@@ -12,7 +12,6 @@ from docx.oxml.shared import OxmlElement, qn
 from docx.shared import Mm, Pt
 
 
-load_dotenv('C:/Juice_Pipeline/config.env')
 sg_token = os.getenv('SG_AMI_REPORT_GENERATOR_TOKEN')
 sg_address = os.getenv('SG_ADDRESS')
 sg_script_name = os.getenv('SG_AMI_REPORT_GENERATOR_NAME')
@@ -362,7 +361,7 @@ class DocXFormatReport:
         col.width = Mm(40)
         paragraph = cell.paragraphs[0]
         run_image = paragraph.add_run()
-        run_image.add_picture('C:/Juice_Pipeline/Juice-AMI/img/J.png', height=Mm(20))
+        run_image.add_picture('C:/Juice_Pipeline/Juice-AMI/static/img/J.png', height=Mm(20))
         paragraph = header_table.cell(0, 1).paragraphs[0]
         run_project_name = paragraph.add_run()
         run_project_name.add_break()

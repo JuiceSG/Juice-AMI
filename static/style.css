@@ -1,32 +1,19 @@
-body{
-    background-color: white;
+body {
 }
 
-img{
-    display: inline-block;
-    vertical-align: top;
-    align:left;
-    width: 50mm;
+.download_playlist {
+    padding-top: 10%;
+    margin-left: 30%;
 }
 
-table, th, td {
-  border: 1px solid silver;
-  border-collapse: collapse;
-  padding: 2mm;
-  font-size: 10px;
-  text-align: justify;
+.download_playlist img {
+    float: left;
+    height: 200px;
 }
 
-.entity{
-    width: 210mm;
-    padding-bottom: 2mm;
-    border-bottom: 1px solid;
-    border-color: grey;
-}
-
-.entity_name{
-    width: 100%;
-    padding: 3mm 0mm 3mm 5mm;
-    font-size: 14px;
-    font-style: bold;
+.download_playlist div {
+    float: left;
+    height: 200px;
+    padding-left: 20px;
+    border-left: thick solid #000000;
 }

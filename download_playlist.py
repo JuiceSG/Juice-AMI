@@ -14,6 +14,9 @@ logging.basicConfig(level=logging.DEBUG)
 
 class PlaylistDownloader:
     def __init__(self, post_dict):
+        self.__data = {
+            'project_name': post_dict["project_name"]
+        }
         self.__sg = shotgun_api3.Shotgun(sg_address, script_name=sg_script_name, api_key=sg_token)
         self.__post_dict = post_dict
 
@@ -23,6 +26,7 @@ class PlaylistDownloader:
             versions = playlist['versions']
             download_location = self.__get_download_location(playlist)
             self.__download_versions(versions, download_location)
+        return self.__data
 
     def __get_playlists(self):
         project_id = self.__post_dict['project_id']
@@ -38,7 +42,7 @@ class PlaylistDownloader:
         return playlists
 
     def __get_selected_ids(self):
-        converted_list = self.__post_dict['ids'].split(',')
+        converted_list = self.__post_dict['selected_ids'].split(',')
         converted_list = map(lambda x: int(x), converted_list)
         converted_list = list(converted_list)
         return converted_list
@@ -48,6 +52,7 @@ class PlaylistDownloader:
         playlist_name = playlist['code']
         playlist_name = self.__check_name_sanity(playlist_name)
         download_location = '%s%s/playlist' % (sg_project_location, project_name)
+        self.__data['playlist_folder'] = download_location.replace('//192.168.1.204/Dane', 'X:')
         self.__check_folder(download_location)
         download_location = '%s/%s' % (download_location, playlist_name)
         self.__check_folder(download_location)
@@ -59,9 +64,8 @@ class PlaylistDownloader:
             link = version_data['sg_uploaded_movie']['url']
             file = version_data['sg_uploaded_movie']['name']
             file = '%s/%s' % (download_location, file)
-            if os.path.exists(file):
-                pass
-            urllib.request.urlretrieve(link, file)
+            if not os.path.exists(file):
+                urllib.request.urlretrieve(link, file)
 
     @staticmethod
     def __check_folder(folder):
