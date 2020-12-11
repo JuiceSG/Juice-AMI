@@ -7,7 +7,7 @@ import download_playlist
 from dotenv import load_dotenv
 from flask import Flask, request, session, redirect, render_template, send_file
 
-load_dotenv('X:/Juice_Pipeline/config.env')
+load_dotenv('C:/Juice_Pipeline/config.env')
 app = Flask(__name__)
 app.secret_key = os.getenv('SG_AMI_SECRET_KEY')   # dla obslugi sesji
 host = os.getenv('SG_AMI_FLASK_HOST')
@@ -39,8 +39,9 @@ def generate_report(redirected_address):
 @app.route('/download_playlist', methods=['POST'])
 def download_playlists():
     post_dict = dict(request.form)
-    # test = download_playlist.test()
-    return 'under construction'
+    playlist = download_playlist.PlaylistDownloader(post_dict)
+    playlist.download()
+    return 'Playlists downloaded'
 
 
 @app.route('/change_status', methods=['POST'])
