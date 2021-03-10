@@ -2,8 +2,8 @@ import shotgun_api3
 import os
 
 
-sg_script_name = os.getenv('SG_AMI_CHANGE_STATUS_NAME')
-sg_token = os.getenv('SG_AMI_CHANGE_STATUS_TOKEN')
+sg_script_name = os.getenv('AMI_CHANGE_STATUS_NAME')
+sg_token = os.getenv('AMI_CHANGE_STATUS_KEY')
 sg_address = os.getenv('SG_ADDRESS')
 
 

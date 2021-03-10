@@ -12,9 +12,9 @@ from docx.oxml.shared import OxmlElement, qn
 from docx.shared import Mm, Pt
 
 
-sg_token = os.getenv('SG_AMI_REPORT_GENERATOR_TOKEN')
 sg_address = os.getenv('SG_ADDRESS')
-sg_script_name = os.getenv('SG_AMI_REPORT_GENERATOR_NAME')
+sg_script_name = os.getenv('AMI_REPORT_GENERATOR_NAME')
+sg_token = os.getenv('AMI_REPORT_GENERATOR_KEY')
 logging.basicConfig(level=logging.DEBUG)
 
 

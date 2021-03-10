@@ -4,14 +4,15 @@ import os
 import report_generator
 import status_changer
 import download_playlist
+import deadline_publisher
 from dotenv import load_dotenv
 from flask import Flask, request, session, redirect, render_template, send_file
 
 load_dotenv('C:/Juice_Pipeline/config.env')
 app = Flask(__name__)
-app.secret_key = os.getenv('SG_AMI_SECRET_KEY')   # dla obslugi sesji
-host = os.getenv('SG_AMI_FLASK_HOST')
-port = os.getenv('SG_AMI_FLASK_PORT')
+app.secret_key = os.getenv('AMI_SECRET_KEY')  # dla obslugi sesji
+host = os.getenv('AMI_FLASK_HOST')
+port = os.getenv('AMI_FLASK_PORT')
 logging.basicConfig(level=logging.DEBUG)
 
 
@@ -52,12 +53,11 @@ def change_status():
     return 'status changed'
 
 
-@app.route('/deadline_test', methods=['POST'])
-def deadline_publisher():
-    session['post_dict'] = dict(request.form)
-    app.logger.info('=======================')
-    app.logger.info(session)
-    return 'under construction'
+@app.route('/deadline_publisher', methods=['POST'])
+def publish_deadline_to_sg():
+    publisher = deadline_publisher.DeadlinePublisher(dict(request.form))
+    publisher.publish()
+    return 'render job submitted'
 
 
 @app.route('/test')

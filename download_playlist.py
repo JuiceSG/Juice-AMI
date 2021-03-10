@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 
 load_dotenv('C:/Juice_Pipeline/config.env')
 sg_project_location = os.getenv('SG_PROJECT_LOCATION')
-sg_token = os.getenv('SG_AMI_DOWNLOAD_PLAYLIST_TOKEN')
-sg_script_name = os.getenv('SG_AMI_DOWNLOAD_PLAYLIST_NAME')
+sg_token = os.getenv('AMI_DOWNLOAD_PLAYLIST_KEY')
+sg_script_name = os.getenv('AMI_DOWNLOAD_PLAYLIST_NAME')
 sg_address = os.getenv('SG_ADDRESS')
 logging.basicConfig(level=logging.DEBUG)
 
